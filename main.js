@@ -41,3 +41,32 @@ function validateCred(array) {
 const findInvalidCards = cards => {
   return cards.filter(card => !validateCred(card))
 }
+
+function idInvalidCardCompanies(invalidCards) {
+    const companies = new Set();
+
+    for (let card of invalidCards) {
+        switch (card[0]) {
+            case 3:
+                companies.add('Amex (American Express)');
+                break;
+            case 4:
+                companies.add('Visa');
+                break;
+            case 5:
+                companies.add('MasterCard');
+                break;
+            case 6:
+                companies.add('Discover');
+                break;
+            default:
+                console.log('Entreprise introuvable');
+        }
+    }
+
+    return Array.from(companies);
+}
+
+
+
+
